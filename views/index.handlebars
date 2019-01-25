@@ -1,0 +1,62 @@
+<div class="container">
+  
+  <div class="jumbotron text-center bg-primary text-white" style="color: rgb(75, 71, 71);">
+    <h1 class="display-4" id="app-title" style="color: rgb(75, 71, 71);">Lit Burger <img src="/assets/img/cheeseburger.png"></h1>
+    <p class="lead" style="padding-right: 7em; color: rgb(75, 71, 71);">Welcome to Lit Burger.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card border border-primary">
+        <div class="card-header bg-primary text-white">
+         Can I take your order?
+        </div>
+        <!--add burger form-->
+        <div class="card-body">
+          <form class="create-form">
+            <div class="form-group">
+              <label for="burger">Place order here:</label>
+              <input type="text" class="form-control" id="burgerToGo" placeholder="">
+            </div>
+            <button class="btn btn-primary" type="submit">Place order</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <div class="col-md-6 mt-4">
+      <div class="card border border-primary">
+        <div class="card-header bg-primary text-white">
+         Burgers
+        </div>
+        <!--hold burgers here-->
+        <div class="card-body">
+              {{#each burgers}}
+                {{#unless devoured}}
+                  {{> burgers/burger-block devour=false}}
+                {{/unless}}
+              {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 mt-4">
+      <div class="card devoured-card">
+        <div class="card-header text-white" id="devoured-card-header">
+         Devoured burgers
+        </div>
+        <!--devoured burger-->
+        <div class="card-body">
+          {{#each burgers}}
+              {{#if devoured}}
+                {{> burgers/burger-devoured devour=true}}
+              {{/if}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+
