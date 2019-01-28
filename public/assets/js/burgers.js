@@ -1,4 +1,9 @@
-(function() {
+originalOnload = window.onload;
+window.onload = function() {
+  if (originalOnload) {
+    originalOnload();
+  }
+$(function () {
     //Click event for adding a burger.
     $(".create-form").on("submit", function(event) {
         
@@ -60,3 +65,4 @@
         );
       });   
 });
+}
